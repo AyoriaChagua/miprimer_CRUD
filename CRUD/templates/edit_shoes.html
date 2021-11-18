@@ -1,0 +1,85 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+  {% for message in messages %}
+  
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+
+  <div class="row">
+    <div class="col-xl-6 col-lg-6 col-md-8 col-sm-8 col-9" id="cont_in">
+      <form action="/update/{{data.0}}" method="POST" enctype="multipart/form-data">
+      
+        <div class="row" id="row_input">
+          <div class="col-4">
+            <input class="form-control" type="text" name="model" placeholder="model" value="{{ data.1 }}">
+          </div>
+          <div class="col-8">
+            <span id="" class="form-text">
+              Must be 8-20 characters long.
+            </span>
+          </div>
+        </div>
+        <div class="row" id="row_input">
+          <div class="col-4">
+            <input class="form-control" type="number" name="price" placeholder="price" value="{{ data.2 }}">
+          </div>
+          <div class="col-8">
+            <span id="" class="form-text">
+              Must be 8-20 characters long.
+            </span>
+          </div>
+        </div>
+        <div class="row" id="row_input">
+          <div class="col-4">
+            <select class="form-control" type="text" name="brand" placeholder="brand" value="{{ data.3 }}" >
+              <option selected>Brands</option>
+              <option value="Nike">Nike</option>
+              <option value="Adidas">Adidas</option>
+              <option value="Reebok">Reebok</option>
+              <option value="Puma">Puma</option>
+              <option value="Fila">Fila</option>
+    
+            </select>
+          </div>
+          <div class="col-8">
+            <span id="" class="form-text">
+              Must be 8-20 characters long.
+            </span>
+          </div>
+        </div>
+        <div class="row " id="row_input">
+          <div class="col-4">
+            <input class="form-control" type="number" name="size" placeholder="size" value="{{ data.4 }}">
+          </div>
+          <div class="col-8">
+            <span id="" class="form-text">
+              Must be 8-20 characters long.
+            </span>
+          </div>
+        </div>
+        <div class="row " id="row_input">
+          <div class="col-4">
+            {{ data.5 }}
+            <input type="file" name="image" placeholder="size" >
+            <input type="" name="image_ant" value="{{ data.5 }}">
+          </div>
+        
+        </div>
+        <button type="submit" class="btn btn-primary" id="btn_add">Submit</button>
+      </form>
+    </div>
+  </div>
+ 
+
+
+{% endblock %}

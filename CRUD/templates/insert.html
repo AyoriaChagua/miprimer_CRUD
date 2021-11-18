@@ -1,0 +1,86 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+  <div class="row" >
+    <div class="col-xl-6 col-lg-6 col-md-8 col-sm-8 col-9" id="cont_in">
+      <form action="/add" method="POST" enctype="multipart/form-data">
+        <div class="row" id="row_input">
+          <div class="col-6">
+            <input class="form-control" type="text" name="id" placeholder="ID">
+          </div>
+          <div class="col-6">
+            <span id="" class="form-text">
+              they must be numbers.
+            </span>
+          </div>
+        </div>
+        <div class="row" id="row_input">
+          <div class="col-6">
+            <input class="form-control" type="text" name="model" placeholder="model">
+          </div>
+          <div class="col-6">
+            <span id="" class="form-text">
+              choose a brand
+            </span>
+          </div>
+        </div>
+        <div class="row" id="row_input">
+          <div class="col-6">
+            <input class="form-control" type="number" name="price" placeholder="price">
+            
+          </div>
+          <div class="col-6">
+            <span id="" class="form-text">
+            </span>
+          </div>
+        </div>
+        <div class="row" id="row_input">
+          <div class="col-6">
+            <select class="form-control"  name="brand" >
+              <option selected>Brands</option>
+              <option value="Nike">Nike</option>
+              <option value="Adidas">Adidas</option>
+              <option value="Reebok">Reebok</option>
+              <option value="Puma">Puma</option>
+              <option value="Fila">Fila</option>
+    
+            </select>
+          </div>
+          <div class="col-6">
+            <span id="" class="form-text">
+              Must be 8-20 characters long.
+            </span>
+          </div>
+        </div>
+        <div class="row " id="row_input">
+          <div class="col-6">
+            <input class="form-control" type="number" name="size" placeholder="size">
+          </div>
+          <div class="col-6">
+            <span id="" class="form-text">
+              Must be 8-20 characters long.
+            </span>
+          </div>
+        </div>
+        <div class="row" id="row_input">
+          <div class="col-6">
+            <input  type="file" name="image" >
+          </div>
+          
+        </div>
+        <button type="submit" class="btn btn-primary" id="btn_add">Submit</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
